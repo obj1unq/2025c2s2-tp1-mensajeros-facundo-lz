@@ -1,0 +1,33 @@
+import mensajeros.*
+
+test "Caso de prueba N1"{
+    paquete.mensajero(neo)
+    paquete.destino(laMatrix)
+    assert.notThat(paquete.puedeSerEntregado())
+}
+
+test "Caso de prueba N2"{
+    paquete.pagar()
+    paquete.mensajero(jeanGray)
+    paquete.destino(laMatrix)
+    assert.that(paquete.puedeSerEntregado())
+}
+
+test "Caso de prueba N3"{
+    saraConnor.pesoPropio(70)
+    camion.cantidadDeAcoplados(1)
+    saraConnor.vehiculo(camion)
+    paquete.pagar()
+    paquete.mensajero(saraConnor)
+    paquete.destino(puenteDeBrooklyn)
+    assert.notThat(paquete.puedeSerEntregado())
+}
+
+test "Caso de prueba N4"{
+    saraConnor.pesoPropio(70)
+    saraConnor.vehiculo(moto)
+    paquete.pagar()
+    paquete.mensajero(saraConnor)
+    paquete.destino(puenteDeBrooklyn)
+    assert.that(paquete.puedeSerEntregado())
+}

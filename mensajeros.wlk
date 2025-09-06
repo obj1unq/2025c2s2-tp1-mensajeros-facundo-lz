@@ -4,38 +4,38 @@ object paquete{
     var mensajero = neo
 
     method puedeSerEntregado(){
-        return estaPago and mensajero.puedeLlevarlo(destino)
+        return estaPago and destino.cumpleRestricciones(mensajero)
     }
 
     method pagar(){
         estaPago = true
     }
 
-    method destino(){
-        return destino
-    }
-
     method destino (_destino){
         destino = _destino 
     }
 
-    method mensajero(){
-        return mensajero
+    method destino(){
+        return destino
     }
 
     method mensajero(_mensajero){
         mensajero = _mensajero
     }
+
+    method mensajero(){
+        return mensajero
+    }
 }
 
 object puenteDeBrooklyn{
-    method pasaRestricciones (mensajero){
+    method cumpleRestricciones (mensajero){
         return mensajero.peso() < 1000
     }
 }
 
 object laMatrix{
-    method pasaRestricciones (mensajero){
+    method cumpleRestricciones (mensajero){
         return mensajero.puedeLlamar()
     }
 }
@@ -43,10 +43,6 @@ object laMatrix{
 object jeanGray{
     const peso = 65
     const puedeLlamar = true
-
-    method puedeLlevarlo(destino){
-        return destino.pasaRestricciones (self)
-    }
 
     method peso(){
         return peso
@@ -61,14 +57,6 @@ object neo{
     const peso = 0
     var puedeLlamar = true
 
-    method puedeLlevarlo(destino){
-        return destino.pasaRestricciones (self)
-    }
-
-    method puedeLlamar(){
-        return puedeLlamar
-    }
-
     method peso(){
         return peso
     }
@@ -76,31 +64,35 @@ object neo{
     method puedeLlamar (tieneCredito){
         puedeLlamar = tieneCredito
     }
+
+    method puedeLlamar(){
+        return puedeLlamar
+    }
 }
 
 object saraConnor{
-    var peso = 60
+    var pesoPropio = 60
     var vehiculo = moto
     const puedeLlamar = false
 
-    method puedeLlevarlo(destino){
-        return destino.pasaRestricciones (self)
-    }
-
     method peso(){
-        return peso + vehiculo.peso()
+        return pesoPropio + vehiculo.peso()
     }
 
-    method peso(_peso){
-        peso = _peso
+    method pesoPropio(_pesoPropio){
+        pesoPropio = _pesoPropio
     }
 
-    method vehiculo(){
-        return vehiculo
+    method pesoPropio(){
+        return pesoPropio
     }
 
     method vehiculo (_vehiculo){
         vehiculo = _vehiculo
+    }
+
+    method vehiculo(){
+        return vehiculo
     }
 
     method puedeLlamar(){
@@ -121,11 +113,11 @@ object camion{
         return 500 + 500 * cantidadDeAcoplados
     }
 
-    method cantidadDeAcoplados(){
-        return cantidadDeAcoplados
-    }
-
     method cantidadDeAcoplados (_cantidadDeAcoplados){
         cantidadDeAcoplados = _cantidadDeAcoplados
+    }
+
+    method cantidadDeAcoplados(){
+        return cantidadDeAcoplados
     }
 }

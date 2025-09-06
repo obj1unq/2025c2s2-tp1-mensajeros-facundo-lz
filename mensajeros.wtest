@@ -14,7 +14,7 @@ test "Caso de prueba N2"{
 }
 
 test "Caso de prueba N3"{
-    saraConnor.peso(70)
+    saraConnor.pesoPropio(70)
     camion.cantidadDeAcoplados(1)
     saraConnor.vehiculo(camion)
     paquete.pagar()
@@ -24,7 +24,7 @@ test "Caso de prueba N3"{
 }
 
 test "Caso de prueba N4"{
-    saraConnor.peso(70)
+    saraConnor.pesoPropio(70)
     saraConnor.vehiculo(moto)
     paquete.pagar()
     paquete.mensajero(saraConnor)
